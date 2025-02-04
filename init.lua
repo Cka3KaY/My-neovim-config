@@ -25,3 +25,8 @@ require("autoclose").setup()
 
 -- lualine setup
 require('lualine').setup()
+
+-- general settings
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.keymap.set("n", "<leader>ee", ":Ex<CR>", {})
