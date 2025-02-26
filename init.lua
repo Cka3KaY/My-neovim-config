@@ -6,8 +6,10 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Telescope find files' })
 
 
+vim.opt.wrap = false
 -- autoclose setup
 require("autoclose").setup()
 
@@ -44,3 +46,6 @@ vim.cmd([[colorscheme gruvbox]])
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_set_option("clipboard", "unnamed")
+
+vim.opt.termguicolors = true
+require("bufferline").setup{}
