@@ -2,8 +2,11 @@ require("config.lazy")
 
 -- Telescope keybindings
 require("mini.indentscope").setup({})
-local builtin = require("telescope.builtin")
+require("render-markdown").enable()
 require("Comment").setup()
+require("mini.surround").setup()
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
