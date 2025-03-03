@@ -1,22 +1,28 @@
 require("config.lazy")
 
 -- Telescope keybindings
-require("mini.indentscope").setup({})
-require("render-markdown").enable()
-require("Comment").setup()
-require("mini.surround").setup()
+--------------------------------------------
 -- local builtin = require("telescope.builtin")
 -- vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 -- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 -- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
--- vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
--- vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Telescope find files" })
+--------------------------------------------
+
+-- Settings
+--------------------------------------------
 vim.opt.shiftwidth = 2 -- Set indentation width
 vim.opt.softtabstop = 2 -- Make backspace behave properly
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.smartindent = true -- Auto-indents based on syntax
 vim.opt.autoindent = true -- Maintains indentation from the previous line
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.api.nvim_set_option("clipboard", "unnamed")
+vim.opt.termguicolors = true
+--------------------------------------------
+-- Keymaps
+--------------------------------------------
 vim.keymap.set("n", "<leader>js", ":!node %<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true })
@@ -25,16 +31,21 @@ vim.keymap.set("n", "<leader>-", ":split<CR>", { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>|", ":vsplit<CR>", { noremap = true, silent = true }) -- Vertical split
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-d>", ":m '>+5<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-u>", ":m '<-5<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
--- autoclose setup
+--vim.keymap.set("n", "<leader>e", ":Ex<CR>", {})
+vim.keymap.set("n", "<Leader>rh", ":vertical resize -2<CR>", { desc = "Decrease split width" })
+vim.keymap.set("n", "<Leader>rl", ":vertical resize +2<CR>", { desc = "Increase split width" })
+vim.keymap.set("n", "<Leader>rj", ":resize -2<CR>", { desc = "Decrease split height" })
+vim.keymap.set("n", "<Leader>rk", ":resize +2<CR>", { desc = "Increase split height" })
+--------------------------------------------
+-- Setups
+--------------------------------------------
+require("Comment").setup()
+require("mini.surround").setup()
 require("autoclose").setup()
-
--- lualine setup
 require("lualine").setup()
-
--- general settings
-vim.keymap.set("n", "<leader>e", ":Ex<CR>", {})
-
 require("gruvbox").setup({
 	terminal_colors = true, -- add neovim terminal colors
 	undercurl = true,
@@ -54,19 +65,15 @@ require("gruvbox").setup({
 	dim_inactive = false,
 	transparent_mode = true,
 })
--- make nvim transparent
---
+require("colorizer").setup()
+--------------------------------------------
 -- Theme
+--------------------------------------------
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.api.nvim_set_option("clipboard", "unnamed")
-
-vim.opt.termguicolors = true
-require("bufferline").setup({})
+--------------------------------------------
 -- Formating
-
+--------------------------------------------
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -112,17 +119,12 @@ vim.api.nvim_create_user_command("FormatEnable", function()
 end, {
 	desc = "Re-enable autoformat-on-save",
 })
-
-require("lazy").setup({
-	{
-		"vidocqh/auto-indent.nvim",
-		opts = {},
-	},
-})
+--------------------------------------------
+-- Some other stuff
 require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
 })
-require("colorizer").setup()
 vim.keymap.set("i", "jj", "<Esc>")
+require("bufferline").setup({})

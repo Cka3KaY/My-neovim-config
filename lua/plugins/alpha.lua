@@ -32,7 +32,12 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  File Explorer", ":Ex<CR>"),
 			dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
-			dashboard.button("ff", "󰭎 FuzzyFind Files", ":Telescope find_files<CR>"),
+			dashboard.button("ff", " FuzzyFind Files", function()
+				Snacks.picker.files()
+			end),
+			dashboard.button("r", " Recent Files", function()
+				Snacks.picker.recent()
+			end),
 		}
 		local handle = io.popen("fortue")
 		local fortune = handle:read("*a")

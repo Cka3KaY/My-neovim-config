@@ -4,10 +4,10 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		bigfile = { enabled = false },
+		bigfile = { enabled = true },
 		dashboard = { enabled = false },
-		explorer = { enabled = false },
-		indent = { enabled = false },
+		explorer = { enabled = true },
+		indent = { enabled = true },
 		input = { enabled = false },
 		notifier = {
 			enabled = true,
@@ -17,21 +17,28 @@ return {
 		quickfile = { enabled = false },
 		scope = { enabled = true },
 		scroll = { enabled = true },
-		statuscolumn = { enabled = true },
-		words = { enabled = true },
+		statuscolumn = { enabled = false },
+		words = { enabled = false },
 		styles = {},
 	},
 	keys = {
 		-- Top Pickers & Explorer
 		{
-			"<leader><space>",
+			"<leader>fs",
 			function()
 				Snacks.picker.smart()
 			end,
 			desc = "Smart Find Files",
 		},
 		{
-			"<leader>b",
+			"<leader>e",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File Explorer",
+		},
+		{
+			"<leader>fb",
 			function()
 				Snacks.picker.buffers()
 			end,
@@ -45,14 +52,14 @@ return {
 			desc = "Grep",
 		},
 		{
-			"<leader>:",
+			"<leader>f:",
 			function()
 				Snacks.picker.command_history()
 			end,
 			desc = "Command History",
 		},
 		{
-			"<leader>n",
+			"<leader>fn",
 			function()
 				Snacks.picker.notifications()
 			end,
@@ -75,6 +82,13 @@ return {
 		},
 		{
 			"<leader>ff",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files",
+		},
+		{
+			"<leader><space>",
 			function()
 				Snacks.picker.files()
 			end,
@@ -153,7 +167,7 @@ return {
 		},
 		-- Grep
 		{
-			"<leader>sb",
+			"<leader>fl",
 			function()
 				Snacks.picker.lines()
 			end,
@@ -316,7 +330,7 @@ return {
 			desc = "Resume",
 		},
 		{
-			"<leader>su",
+			"<leader>fu",
 			function()
 				Snacks.picker.undo()
 			end,

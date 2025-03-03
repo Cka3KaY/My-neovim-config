@@ -117,6 +117,7 @@ return {
 						"scss",
 						"less",
 						"svelte",
+						"javascript",
 					},
 				})
 			end,
