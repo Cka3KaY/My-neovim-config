@@ -1,8 +1,6 @@
 require("config.lazy")
 
 -- Telescope keybindings
---------------------------------------------
-
 -- vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 -- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 -- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
@@ -14,7 +12,7 @@ require("config.lazy")
 vim.opt.shiftwidth = 2 -- Set indentation width
 vim.opt.softtabstop = 2 -- Make backspace behave properly
 vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.smartindent = true -- Auto-indents based on syntax
+-- vim.opt.smartindent = true -- Auto-indents based on syntax
 vim.opt.autoindent = true -- Maintains indentation from the previous line
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -121,10 +119,5 @@ end, {
 })
 --------------------------------------------
 -- Some other stuff
-require("nvim-treesitter.configs").setup({
-	indent = {
-		enable = true,
-	},
-})
 vim.keymap.set("i", "jj", "<Esc>")
 require("bufferline").setup({})
