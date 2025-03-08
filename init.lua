@@ -6,7 +6,6 @@ require("config.lazy")
 -- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 --------------------------------------------
-
 -- Settings
 --------------------------------------------
 vim.opt.shiftwidth = 2 -- Set indentation width
