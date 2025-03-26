@@ -66,7 +66,7 @@ require("gruvbox").setup({
 	dim_inactive = false,
 	transparent_mode = true,
 })
-require("colorizer").setup()
+-- require("colorizer").setup()
 --------------------------------------------
 -- Theme
 --------------------------------------------
