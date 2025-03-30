@@ -25,6 +25,7 @@ vim.g.netrw_liststyle = 3
 -- Keymaps
 --------------------------------------------
 vim.keymap.set("n", "<leader>js", ":!node %<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>py", ":python3 %<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[c", ":bdelete<CR>", { noremap = true, silent = true })
@@ -66,12 +67,17 @@ require("gruvbox").setup({
 	dim_inactive = false,
 	transparent_mode = true,
 })
--- require("colorizer").setup()
+-- require("catppuccin").setup({
+-- 	transparent_background = true,
+-- })
+-- values shown are defaults and will be used if not provided
+require("colorizer").setup()
 --------------------------------------------
 -- Theme
 --------------------------------------------
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd.colorscheme("catppuccin-macchiato")
 --------------------------------------------
 -- Formating
 --------------------------------------------
