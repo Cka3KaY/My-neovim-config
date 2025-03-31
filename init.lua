@@ -41,6 +41,8 @@ vim.keymap.set("n", "<Leader>rh", ":vertical resize -2<CR>", { desc = "Decrease 
 vim.keymap.set("n", "<Leader>rl", ":vertical resize +2<CR>", { desc = "Increase split width" })
 vim.keymap.set("n", "<Leader>rj", ":resize -2<CR>", { desc = "Decrease split height" })
 vim.keymap.set("n", "<Leader>rk", ":resize +2<CR>", { desc = "Increase split height" })
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 --------------------------------------------
 -- Setups
 --------------------------------------------
@@ -163,4 +165,3 @@ end, {
 --------------------------------------------
 -- Some other stuff
 vim.keymap.set("i", "jj", "<Esc>")
-require("bufferline").setup({})
