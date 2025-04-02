@@ -8,7 +8,7 @@ return {
 		dashboard = { enabled = false },
 		explorer = { enabled = true },
 		indent = {
-			enabled = false,
+			enabled = true,
 		},
 		input = { enabled = false },
 		notifier = {
