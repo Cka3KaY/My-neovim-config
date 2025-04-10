@@ -23,7 +23,6 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-d>", ":m '>+5<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-u>", ":m '<-5<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 --vim.keymap.set("n", "<leader>e", ":Ex<CR>", {})
 vim.keymap.set("n", "<Leader>rh", ":vertical resize -2<CR>", { desc = "Decrease split width" })
 vim.keymap.set("n", "<Leader>rl", ":vertical resize +2<CR>", { desc = "Increase split width" })
@@ -35,3 +34,10 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd.colorscheme("catppuccin-macchiato")
+-- Put this in your init.lua
+vim.keymap.set("i", "(", "()<Left>")
+vim.keymap.set("i", "[", "[]<Left>")
+vim.keymap.set("i", "{", "{}<Left>")
+vim.keymap.set("i", "'", "''<Left>")
+vim.keymap.set("i", '"', '""<Left>')
+vim.keymap.set("i", "`", "``<Left>")
